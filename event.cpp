@@ -1,7 +1,7 @@
-ï»¿/*
+/*
 ** Author 	   : Gzh
 ** Datetime    : 3/11
-** Description : äº‹ä»¶Event
+** Description : ÊÂ¼şEvent
 */ 
 
 #include <stdio.h>
@@ -15,13 +15,13 @@ CRITICAL_SECTION thread_code;
 unsigned __stdcall func(void *pM)
 {
 	int thread_num = *(int*)pM;
-	SetEvent(thread_event);           //eventäº‹ä»¶è§¦å‘ï¼Œforè¯­å¥ç»§ç»­æ‰§è¡Œ
+	SetEvent(thread_event);           //eventÊÂ¼ş´¥·¢£¬forÓï¾ä¼ÌĞøÖ´ĞĞ
 	 
-	Sleep(1000);
+	Sleep(100);
 	
 	EnterCriticalSection(&thread_code); 
 	count++;
-	printf("çº¿ç¨‹ç¼–å·ä¸º%d å…¨å±€èµ„æºä¸º%d\n", thread_num, count);
+	printf("Ïß³Ì±àºÅÎª%d È«¾Ö×ÊÔ´Îª%d\n", thread_num, count);
 	LeaveCriticalSection(&thread_code);
 	
 	return 0;
@@ -29,11 +29,13 @@ unsigned __stdcall func(void *pM)
 
 int main()
 {
-	printf("\tçº¿ç¨‹åŒæ­¥ï¼šEvent\n");
-	thread_event = CreateEvent(NULL, false, false, NULL);         //åˆå§‹åŒ–ä¸€ä¸ªè‡ªåŠ¨ç½®ä½ï¼Œåˆå§‹æ— å‡ºå‘çš„åŒ¿åäº‹ä»¶ 
+	printf("\tÏß³ÌÍ¬²½£ºEvent\n");
+	thread_event = CreateEvent(NULL, false, false, NULL);         //³õÊ¼»¯Ò»¸ö×Ô¶¯ÖÃÎ»£¬³õÊ¼ÎŞĞÅºÅµÄÄäÃûÊÂ¼ş 
 	InitializeCriticalSection(&thread_code);
 	HANDLE handle[THREAD_NUM];
-	for(int i = 1; i < THREAD_NUM; ++i){
+	
+	
+	for(int i = i; i < THREAD_NUM; ++i){
 		handle[i] = (HANDLE)_beginthreadex(NULL, 0, func, &i, 0, NULL);
 		WaitForSingleObject(handle[i], INFINITE);
 	}
