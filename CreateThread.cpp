@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 ** Author 		: Gzh
 ** Datetime 	: 3/11
 ** Description  : CreateThread
@@ -8,7 +8,7 @@
 
 DWORD WINAPI ThreadFunc(LPVOID pM)
 {
-	printf("×ÓÏß³ÌID:%d\n×ÓÏß³ÌÊä³ö Hello World\n", GetCurrentThreadId()); 
+	printf("å­çº¿ç¨‹ID:%d\nå­çº¿ç¨‹è¾“å‡º Hello World\n", GetCurrentThreadId()); 
 	
 	return 0;
 }
