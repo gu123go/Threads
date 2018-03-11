@@ -1,4 +1,10 @@
-﻿#include <stdio.h>
+﻿/*
+** Author 	   : Gzh
+** Datetime    : 3/11
+** Description : 使用Interlocked
+*/ 
+
+#include <stdio.h>
 #include <process.h>
 #include <windows.h>
 
