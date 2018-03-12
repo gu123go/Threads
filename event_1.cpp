@@ -1,3 +1,10 @@
+/*
+** Author  	 	: Gzh
+** Datetmie   	: 3/12
+** Description  : event
+*/ 
+
+
 #include <stdio.h>
 #include <process.h>
 #include <windows.h>
@@ -37,7 +44,7 @@ unsigned __stdcall func2(void *pM)
 int main()
 {
 	
-	hEvent = CreateEvent(NULL, false, true, NULL);
+	hEvent = CreateEvent(NULL, false, true, NULL);      //自动置位，初始触发 
 	
 	HANDLE handle[2];
 	handle[0] = (HANDLE)_beginthreadex(NULL, 0, func1, NULL, 0, NULL);

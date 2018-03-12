@@ -16,7 +16,7 @@ unsigned __stdcall func(void *pM)
 {
 	int thread_num = *(int*)pM;
 	SetEvent(thread_event);           //event事件触发，for语句继续执行
-	 
+	//PulseEvent(thread_event);         /*SetEvent(thread_event); ResetEvent(thread_event);*/
 	Sleep(100);
 	
 	EnterCriticalSection(&thread_code); 
@@ -37,7 +37,7 @@ int main()
 	
 	for(int i = i; i < THREAD_NUM; ++i){
 		handle[i] = (HANDLE)_beginthreadex(NULL, 0, func, &i, 0, NULL);
-		WaitForSingleObject(handle[i], INFINITE);
+		WaitForSingleObject(thread_event, INFINITE);
 	}
 		 
 	
